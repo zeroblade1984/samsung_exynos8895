@@ -1,0 +1,46 @@
+From 6da0e84be21dc3511c3b1486408ac7813329025d Mon Sep 17 00:00:00 2001
+From: Andrew Pinski <apinski@cavium.com>
+Date: Mon, 18 Sep 2017 11:20:20 +0100
+Subject: [PATCH] BACKPORT: arm64: ensure the kernel is compiled for LP64
+
+commit 3d6a7b99e3fa29b92d6288487e057e0a596bd2b0 upstream.
+
+The kernel needs to be compiled as a LP64 binary for ARM64, even when
+using a compiler that defaults to code-generation for the ILP32 ABI.
+Consequently, we need to explicitly pass '-mabi=lp64' (supported on
+gcc-4.9 and newer).
+
+Signed-off-by: Andrew Pinski <Andrew.Pinski@caviumnetworks.com>
+Signed-off-by: Philipp Tomsich <philipp.tomsich@theobroma-systems.com>
+Signed-off-by: Christoph Muellner <christoph.muellner@theobroma-systems.com>
+Signed-off-by: Yury Norov <ynorov@caviumnetworks.com>
+Reviewed-by: David Daney <ddaney@caviumnetworks.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+---
+ arch/arm64/Makefile | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index d77530075834..bfa194999ac1 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -40,14 +40,19 @@ KBUILD_CFLAGS	+= $(call cc-option, -mpc-relative-literal-loads)
+ KBUILD_CFLAGS	+= -fno-asynchronous-unwind-tables
+ KBUILD_AFLAGS	+= $(lseinstr)
+ 
++KBUILD_CFLAGS	+= $(call cc-option,-mabi=lp64)
++KBUILD_AFLAGS	+= $(call cc-option,-mabi=lp64)
++
+ ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
+ KBUILD_CPPFLAGS	+= -mbig-endian
+ AS		+= -EB
+ LD		+= -EB
++LDFLAGS		+= -maarch64linuxb
+ else
+ KBUILD_CPPFLAGS	+= -mlittle-endian
+ AS		+= -EL
+ LD		+= -EL
++LDFLAGS		+= -maarch64linux
+ endif
+ 
+ CHECKFLAGS	+= -D__aarch64__
