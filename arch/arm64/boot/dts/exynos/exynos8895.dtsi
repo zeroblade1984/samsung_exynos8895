@@ -515,6 +515,7 @@
 			cal-id = <ACPM_DVFS_CPUCL0>;
 			dm-type = <DM_CPU_CL1>;
 
+			max-freq = <2574000>;
 			min-freq = <741000>;
 
 			/* PM QoS Class ID*/
@@ -4493,7 +4494,7 @@
 		/* gpu cooling related table */
 		/* flags, driver_data(index), frequency */
 		gpu_idx_num = <6>;
-		gpu_cooling_table = < 0 0 546000
+		gpu_cooling_table = < 0 0 572000
 				      0 1 455000
 				      0 2 385000
 				      0 3 338000
