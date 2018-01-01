@@ -4494,7 +4494,7 @@
 		/* gpu cooling related table */
 		/* flags, driver_data(index), frequency */
 		gpu_idx_num = <6>;
-		gpu_cooling_table = < 0 0 572000
+		gpu_cooling_table = < 0 0 546000
 				      0 1 455000
 				      0 2 385000
 				      0 3 338000
