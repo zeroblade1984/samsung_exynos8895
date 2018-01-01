@@ -675,7 +675,6 @@
 		};
 	};
 
-
 	ITMON@0 {
 		compatible = "samsung,exynos-itmon";
 		interrupts = <0 72 0>,  /* DATA_BUS_1  */
@@ -1024,10 +1023,10 @@
 			#address-cells = <2>;
 			#size-cells = <1>;
 			ranges;
-			
+
 			reg =
 				<0x0 0x11020700 0x4>;
-			
+
 			mask = <(BIT_8 | BIT_9)>;
 			bits = <(BIT_8 | BIT_9)>;
 		};
@@ -2609,14 +2608,13 @@
 		samsung,power-domain = <&pd_g2d>;
 		iommus = <&sysmmu_g2d_0>, <&sysmmu_g2d_1>;
 		hw_ppc = <2800>, <2400>, <3800>;
-						/* cluster1 cluster0 mif */
+			/* cluster1 cluster0 mif */
 		skia_qos_table = <0 0 1014000
-						0 0 1014000
-						0 0 845000
-						0 0 845000
-						0 0 676000
-						0 0 0
-						>;
+				  0 0 1014000
+				  0 0 845000
+				  0 0 845000
+				  0 0 676000
+				  0 0 0>;
 	};
 
 	sysmmu_g2d_0: sysmmu@13A60000 {
@@ -4615,43 +4613,43 @@
 			cooling-maps {
 				map0 {
 				     trip = <&apo_alert0>;
-				     /* Corresponds to 1586MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 1690MHz at freq_table */
+				     cooling-device = <&cpu0 0 3>;
 				};
 				map1 {
 				     trip = <&apo_alert1>;
-				     /* Corresponds to 1482MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 1690MHz at freq_table */
+				     cooling-device = <&cpu0 0 3>;
 			       };
 				map2 {
 				     trip = <&apo_alert2>;
-				     /* Corresponds to 1378MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 1456MHz at freq_table */
+				     cooling-device = <&cpu0 0 4>;
 				};
 				map3 {
 				     trip = <&apo_alert3>;
-				     /* Corresponds to 1170MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 1248MHz at freq_table */
+				     cooling-device = <&cpu0 0 5>;
 				};
 				map4 {
 				     trip = <&apo_alert4>;
-				     /* Corresponds to 1066MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 1053MHz at freq_table */
+				     cooling-device = <&cpu0 0 6>;
 				};
 				map5 {
 				     trip = <&apo_alert5>;
-				     /* Corresponds to 442MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 832MHz at freq_table */
+				     cooling-device = <&cpu0 0 8>;
 			       };
 				map6 {
 				     trip = <&apo_alert6>;
-				     /* Corresponds to 442MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 832MHz at freq_table */
+				     cooling-device = <&cpu0 0 8>;
 				};
 				map7 {
 				     trip = <&apo_hot>;
-				     /* Corresponds to 442MHz at freq_table */
-				     cooling-device = <&cpu0 0 0>;
+				     /* Corresponds to 832MHz at freq_table */
+				     cooling-device = <&cpu0 0 8>;
 				};
 			};
 		};
