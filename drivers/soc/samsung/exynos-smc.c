@@ -14,8 +14,6 @@
 #include <linux/spinlock.h>
 #include <linux/smc.h>
 
-#define CONFIG_EXYNOS_SMC_LOGGING
-
 #ifdef CONFIG_EXYNOS_SMC_LOGGING
 #define EXYNOS_SMC_LOG_SIZE	1024
 
