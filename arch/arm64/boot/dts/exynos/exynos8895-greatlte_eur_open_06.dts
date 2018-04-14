@@ -2579,7 +2579,7 @@
    dm-type = <1>;
 
    min-freq = <741000>;
-
+   max-freq = <2574000>;
 
    pm_qos-min-class = <5>;
    pm_qos-max-class = <6>;
